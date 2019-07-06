@@ -1,0 +1,55 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Exercise3 
+{
+	void method11(int i11[],int i1)
+	{
+		
+		String str1[] = new String[i1];
+		for(int i=0;i<i1;i++)
+		{
+			   str1[i] = Integer.toString(i11[i]);   
+		}
+		
+		for (int k = 0; k < i1; k++) 
+        { 
+            System.out.println(str1[k]); 
+        } 
+		
+		String[] b = new String[i1]; 
+        int j = i1; 
+        for (int i=0;i<i1;i++)
+        { 
+            b[j-1]=str1[i]; 
+            j=j-1; 
+        } 
+        
+        System.out.println("Reversed array : "); 
+        for (int k = 0; k < i1; k++) 
+        { 
+            System.out.println(b[k]); 
+        } 
+        
+        Arrays.sort(b);
+        System.out.println("sorted array :");
+        for(String b1:b)
+        {
+        System.out.println(b1);
+        }
+	}
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter array size");
+		int i1=sc.nextInt();
+		int i11[]=new int[i1];
+		System.out.println("enter aray");
+		for(int i=0;i<i1;i++)
+		{
+			i11[i]=sc.nextInt();
+		}
+		Exercise3 e=new Exercise3();
+		e.method11(i11,i1);
+	}
+}
