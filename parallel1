@@ -1,0 +1,73 @@
+package com.cap.pac;
+
+import java.util.Arrays;
+
+class AccountCreation {
+ private String name, Dob,password;
+ private long balance,phoneno;
+ int i;
+ private String tran[]=new String[20];
+public String[] getTran() {
+	return tran;
+}
+public void setTran(String[] tran) {
+	this.tran = tran;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getDob() {
+	return Dob;
+}
+public void setDob(String dob) {
+	Dob = dob;
+}
+public String getPassword() {
+	return password;
+}
+public void setpassword(String password) {
+	this.password = password;
+}
+public boolean getPassword(String password)
+{
+	if(this.password.equals(password))
+	{
+		return true;
+	}
+	else
+		return false;
+}
+public long getBalance() {
+	return balance;
+}
+public void setBalance(long balance) {
+	this.balance = balance;
+}
+public long getPhoneno() {
+	return phoneno;
+}
+public void setPhoneno(long phoneno) {
+	this.phoneno = phoneno;
+}
+public AccountCreation(String name,String Dob,long phoneno,String password,int bal,String tan) {
+ this.name=name;
+ this.Dob=Dob;
+ this.phoneno=phoneno;
+ balance=bal;
+ tran[i]=tan;
+ System.out.println(tran[i]);
+ i++;
+ }
+@Override
+public String toString() {
+	return "AccountCreation[i="  + i + ", name=" + name + " ,Dob =" + Dob + " ,Phoneno= " + phoneno + ", balance=" + balance + ", password=" + password +", trans=" +Arrays.toString(tran) +"]";
+}
+public void setPassword(String password)
+{
+	this.password=password;
+}
+}
+ 
