@@ -1,0 +1,65 @@
+package com.cap.bean;
+
+public class Account {
+   private String name;
+   private  long phoneno;
+   private String dob;
+   private String password;
+   private long acc;
+private long balance;
+private long amount;
+public void setBalance(long balance) {
+	this.balance = balance;
+}
+public long getAcc() {
+	return acc;
+}
+public void setAcc(long acc) {
+	this.acc = acc;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public long getPhoneno() {
+	return phoneno;
+}
+public void setPhoneno(long phoneno) {
+	this.phoneno = phoneno;
+}
+public String getDob() {
+	return dob;
+}
+public void setDob(String dob) {
+	this.dob = dob;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String password) {
+	this.password = password;
+}
+public Account(String name,long phoneno,String dob,String password, long acc,long balance,long amount)
+{
+	super();
+	this.name=name;
+	this.phoneno=phoneno;
+	this.dob=dob;
+	this.password=password;
+	this.acc=acc;
+	this.balance=balance;
+	this.amount=amount;
+}
+public long getBalance() {
+	// TODO Auto-generated method stub
+	return balance;
+}
+public long getAmount() {
+	// TODO Auto-generated method stub
+	return amount;
+
+
+}
+}
