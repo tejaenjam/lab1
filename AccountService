@@ -1,0 +1,85 @@
+package com.cap.service;
+
+import com.cap.bean.Account;
+import com.cap.dao.AccountDao;
+
+public class AccountService implements AccountServiceI{
+AccountDao dao= new AccountDao();
+
+
+
+public boolean addData(String name, long phoneno, String dob, String password) {
+	// TODO Auto-generated method stub
+	long acc=phoneno+1000;
+	long balance=0;
+	long amount=0;
+	Account abean=new Account(name, phoneno, dob, password,acc,balance,amount);
+	
+	if(dao.setData(abean)){
+		return true;
+		
+	}
+	else
+	{
+		return false;
+	}
+	
+	
+}
+
+
+
+public Account getInfo(long phoneno) {
+	// TODO Auto-generated method stub
+	Account ob=dao.getInfo(phoneno+1000);
+	
+	return ob;
+}
+
+
+
+public boolean validation(long accno,String password) {
+	// TODO Auto-generated method stub
+	boolean ob1=dao.validation(accno,password);
+	return true;
+}
+
+
+
+public long deposit(long amount,long accno1) {
+	// TODO Auto-generated method stub
+	long ob11=dao.deposit(amount,accno1);
+	return ob11;
+}
+
+
+
+public Account showbalance(long balance,long accno) {
+	// TODO Auto-generated method stub
+	Account k= dao.showbalance(balance,accno);
+	//System.out.println("hi");
+	return k;
+}
+
+
+
+public long withdraw(long amount, long accno2) {
+	// TODO Auto-generated method stub
+	long k= dao.withdraw(amount,accno2);
+	return k;
+}
+
+
+
+public long fund(long accno3, String password, long accno4, long amount) {
+	// TODO Auto-generated method stub
+	long bal1= dao.withdraw(accno3,password,accno4,amount);
+	return bal1;
+}
+
+
+
+
+
+
+}
