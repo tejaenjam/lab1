@@ -1,0 +1,110 @@
+package com.cap.dao;
+
+import java.util.HashMap;
+
+import com.cap.bean.Account;
+
+public class AccountDao implements AccountDaoI{
+long t1,t2;
+
+	HashMap hm=new HashMap();
+
+	public boolean setData(com.cap.bean.Account abean) {
+		// TODO Auto-generated method stub
+		if(hm.containsKey(abean.getAcc()))
+			return false;
+		else
+		{
+			hm.put(abean.getAcc(), abean);
+			return true;
+		}
+		
+		
+		
+	}
+
+	public com.cap.bean.Account getInfo(long acc) {
+		// TODO Auto-generated method stub
+		if(hm.containsKey(acc)) {
+			com.cap.bean.Account ob=(com.cap.bean.Account)hm.get(acc);
+			return ob;
+		}
+			
+		return null;
+	}
+
+	public  boolean validation(long accno,String password) {
+		// TODO Auto-generated method stub
+		com.cap.bean.Account ob=(com.cap.bean.Account)hm.get(accno);
+		 if(hm.containsKey(accno) && hm.containsKey(password))
+	     {
+	    	 return true;
+	     }
+		
+		return false;
+	}
+
+	public com.cap.bean.Account deposit(long amt) {
+		// TODO Auto-generated method stub
+		com.cap.bean.Account ob=(com.cap.bean.Account)hm.get(amt);
+		return null;
+	}
+
+	
+
+	@Override
+	public void Account(String name, String phoneno, String dob, String password) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public com.cap.bean.Account showbalance(long balance,long accno) {
+		// TODO Auto-generated method stub
+		
+		Account bean=(Account) hm.get(accno);
+		//hm.put(bean.getAcc(), bean);
+		System.out.println(bean.getBalance());
+		long d1=bean.getBalance()+balance;
+		bean.setBalance(d1);
+		bean.getBalance();
+		return bean; 
+		}
+
+	public long deposit(long amount, long accno1) {
+		// TODO Auto-generated method stub
+		Account bean=(Account) hm.get(accno1);
+		long d2=bean.getBalance()+amount;
+		bean.getAmount();
+		bean.setBalance(d2);
+		return d2;
+	}
+
+	public long withdraw(long amount, long accno2) {
+		// TODO Auto-generated method stub
+		Account bean=(Account) hm.get(accno2);
+		long d2=bean.getBalance()-amount;
+		bean.getAmount();
+		bean.setBalance(d2);
+		return d2;
+	}
+
+	public long withdraw(long accno3, String password, long accno4, long amount) {
+		// TODO Auto-generated method stub
+		if(hm.containsKey(accno3) && hm.containsKey(accno4))
+		{
+		Account bean=(Account) hm.get(accno3);
+		Account bean1=(Account) hm.get(accno4);
+		if(bean.getPassword().equals(password))
+		{
+			t1=bean.getBalance()-amount;
+			t2=bean1.getBalance()+amount;
+		}
+		return t1;
+
+	}
+		return 0;
+
+	
+	}
+}
