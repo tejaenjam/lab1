@@ -1,0 +1,140 @@
+package com.cap.ui;
+
+import java.util.Scanner;
+
+import com.cap.bean.Account;
+import com.cap.service.AccountService;
+
+public class AccountUI {
+	AccountService service = new AccountService();
+
+	public void showoptions() {
+		System.out.println("1 : Creation of account");
+		System.out.println("2 : show balance");
+		System.out.println("3 : deposit money");
+		System.out.println("4 : withdraw money");
+		System.out.println("5 : tranfer money");
+	}
+
+	public int getOption(Scanner sc) {
+		try {
+			int option = sc.nextInt();
+			return option;
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+
+	public void choose() {
+		boolean run = true;
+		while (run) {
+			showoptions();
+			Scanner sc = new Scanner(System.in);
+			int option = getOption(sc);
+			if (option == -1) {
+				run = false;
+			}
+			switch (option) {
+			case 1:
+
+				System.out.println("Enter your name");
+				String name = sc.next();
+				System.out.println("Enter your mobile number");
+				long phoneno = sc.nextLong();
+				System.out.println("Enter your date of birth");
+				String dob = sc.next();
+				System.out.println("Enter your password");
+				String password = sc.next();
+				if (service.addData(name, phoneno, dob, password))
+
+					System.out.println("Account successfully created");
+				else
+					System.out.println("Account already exists");
+				Account ob = service.getInfo(phoneno);
+				System.out.println(ob.getAcc());
+				System.out.println(ob.getDob());
+				System.out.println(ob.getName());
+				break;
+			case 2:
+				System.out.println("Enter your account no");
+				long accno = sc.nextLong();
+				System.out.println("Enter your password");
+				password = sc.next();
+				boolean ob1 = service.validation(accno, password);
+				// Account ob2=service.getInfo(phoneno);
+				if (ob1) {
+
+					System.out.println("Account Validated successfully");
+					System.out.println("balance ");
+					long balance = sc.nextLong();
+					Account bal = service.showbalance(balance, accno);
+
+					System.out.println(bal.getBalance());
+					break;
+				} else {
+					System.out.println("Enter valid account number");
+					break;
+				}
+			case 3:
+				System.out.println("Enter your account no");
+				long accno1 = sc.nextLong();
+				System.out.println("Enter your password");
+				password = sc.next();
+				boolean ob2 = service.validation(accno1, password);
+				// Account ob2=service.getInfo(phoneno);
+				if (ob2) {
+
+					System.out.println("Account Validated successfully");
+					System.out.println("Enter amount to deposit ");
+					long amount = sc.nextLong();
+					long ob11 = service.deposit(amount, accno1);
+
+					System.out.println(ob11);
+					break;
+				} else {
+					System.out.println("Enter valid account number");
+					break;
+				}
+			case 4:
+				System.out.println("Enter your account no");
+				long accno2 = sc.nextLong();
+				System.out.println("Enter your password");
+				password = sc.next();
+				boolean ob3 = service.validation(accno2, password);
+				// Account ob2=service.getInfo(phoneno);
+				if (ob3) {
+
+					System.out.println("Account Validated successfully");
+					System.out.println("Enter amount to withdrawn ");
+					long amount = sc.nextLong();
+					long ob11 = service.withdraw(amount, accno2);
+
+					System.out.println(ob11);
+					break;
+				} else {
+					System.out.println("Enter valid account number");
+					break;
+				}
+			case 5:
+				System.out.println("Enter your account no to transfer");
+				long accno3 = sc.nextLong();
+				System.out.println("Enter your password");
+				password = sc.next();
+				System.out.println("Enter your account no to receive");
+				long accno4 = sc.nextLong();
+				System.out.println("Enter fund amount to transfer");
+				long amount=sc.nextLong();
+				long bal1=service.fund(accno3,password,accno4,amount);
+				System.out.println(bal1);
+				
+
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		AccountUI ui = new AccountUI();
+		ui.choose();
+	}
+}
