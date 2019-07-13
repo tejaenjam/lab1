@@ -1,0 +1,62 @@
+package com.capgemini.takehome.util;
+
+import java.util.Scanner;
+
+import com.capgemini.takehome.bean.Product;
+import com.capgemini.takehome.service.ProductService;
+
+public class Client {
+public static void main(String[] args) {
+	ProductService service=new ProductService();
+	
+	String name = null;
+	String productcategory = null;
+	int productprice = 0;
+	int id = 0;
+	Product bean = new Product( id,name,productcategory, productprice);
+	Scanner sc=new Scanner(System.in);
+	while(true)
+	{
+	System.out.println("1: Generate bill by entering product code and quantity");
+	System.out.println("2: Exit");
+System.out.println("Enter your choice");
+   int n=sc.nextInt();
+   switch(n)
+   {
+   case 1:{
+	   System.out.println("Enter product code");
+	 id=sc.nextInt();
+	String code=Integer.toString(id);
+	boolean b=service.validateproductcode(code);
+	while(true) {
+ if(b) {
+	 System.out.println("validated");
+      }
+ else
+ {
+	 System.out.println("Enter product code in correct format");
+	  id=sc.nextInt();
+		code=Integer.toString(id);
+		b=service.validateproductcode(code);
+ }
+   
+ Product  k=service.getProductDetails(id);
+ System.out.println(k);
+ System.out.println("Enter product quantity");
+ int q=sc.nextInt();
+ int t=service.gettotalprice(id,q);
+   System.out.println(t);
+   break;
+	}
+  
+   }
+    case 2:
+   {
+	   System.out.println("Exit");
+	   break;
+	}
+	}
+}
+}
+}
+
