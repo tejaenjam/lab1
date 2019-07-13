@@ -1,0 +1,36 @@
+package com.capgemini.takehome.dao;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.capgemini.takehome.bean.Product;
+
+public class ProductDAO {
+int a,z;
+	CollectionUtil d=new CollectionUtil();
+	
+	Map w1=d.d1();
+	
+	
+	public Product getProductDetails(int a) {
+		Product p1=(Product) w1.get(a);
+		// TODO Auto-generated method stub
+		
+			return p1;
+			
+	}
+
+
+	public int gettotalprice(int id, int q) {
+		// TODO Auto-generated method stub
+		
+		Product p1=(Product) w1.get(id);
+		int dep=p1.getProductprice();
+		
+		z=dep*q;
+		return z;
+	}
+		
+	}
+
+
