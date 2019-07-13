@@ -1,0 +1,31 @@
+package com.capgemini.takehome.service;
+
+import com.capgemini.takehome.bean.Product;
+import com.capgemini.takehome.dao.ProductDAO;
+
+public class ProductService {
+
+	ProductDAO dao = new ProductDAO();
+
+	public boolean validateproductcode(String code) {
+		// TODO Auto-generated method stub
+		if (code.matches("[0-9]{4}"))
+			return true;
+		else
+			return false;
+
+	}
+
+	public Product getProductDetails(int id) {
+		return dao.getProductDetails(id);
+	}
+
+	public int gettotalprice(int id, int q) {
+		
+		int t = dao.gettotalprice(id, q);
+		return t;
+		// TODO Auto-generated method stub
+
+	}
+
+}
