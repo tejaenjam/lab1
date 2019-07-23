@@ -1,0 +1,205 @@
+<html>
+
+<head>
+
+        <script>
+                function validate2() {
+                        var x = document.getElementById("c").value;
+                        var atposition = x.indexOf("@");
+                        var dotposition = x.lastIndexOf(".");
+                        if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 > x.lenght) {
+                                document.getElementById("result2").innerHTML = "invalid";
+                        }
+                        else {
+                                document.getElementById("result2").innerHTML = "valid";
+                        }
+                }
+
+                function validate() {
+                        var x = document.getElementById("a").value;
+
+                        if (x.length < 6) {
+                                document.getElementById("result").innerHTML = "invalid";
+                        }
+                        else {
+                                document.getElementById("result").innerHTML = "valid";
+                        }
+                }
+                function validate1() {
+                        var x = document.getElementById("b").value;
+
+                        if (x.length < 6) {
+                                document.getElementById("result1").innerHTML = "invalid";
+                        }
+                        else {
+                                document.getElementById("result1").innerHTML = "valid";
+                        }
+                        
+          }
+          function validate3() {
+                        var x = document.getElementById("d").value;
+                        var re = /([a-z][A-Z]){6,}/;
+                        if (x.length > 6 || x.match(re)) {
+                                document.getElementById("result3").innerHTML = "valid";
+                        }
+                        else {
+                                document.getElementById("result3").innerHTML = "invalid";
+                        }
+                }
+
+        </script>
+
+        <title> Register </title>
+</head>
+
+<body style="background-image: url(image.jpg)">
+        <center>
+
+                <h1 align="center">REGISTER </h1>
+                <h2 align="center ">please fill this form to create an account</h2>
+                <table>
+                        <tr>
+
+                                <td> UserName</td>
+
+
+                                <td><input type="text" placeholder="Enter Username" title="Minimum 5 letters" id="a"
+                                                required onkeyup="validate()"> </td>
+                                <td><span id="result"></span></td>
+
+
+
+
+                        </tr>
+
+                        <tr>
+
+                                <td>Enter name</td>
+
+                                <td><input type="text" placeholder="Enter name" title="Minimum 5 letters" id="b"
+                                                required onkeyup="validate1()"></td>
+                                <td><span id="result1"></span>
+                                </td>
+
+                        </tr>
+
+                        <tr>
+
+                                <th>Email</th>
+
+                                <td><input type="text" placeholder="Enter Email" title="Minimum 5 letters" id="c"
+                                                required onkeyup="validate2()"></td>
+                                <td><p id="result2"></p>
+                                </td>
+                        
+
+
+                        </tr>
+                        <tr>
+
+                                <th>password</th>
+
+                                <td><input type="text" placeholder="Enter Password" title="Minimum 6 letters" id="d"
+                                        required onkeyup="validate3()"></td>
+                                        <td><p id="result3"></p>
+                                        </td>
+
+                        </tr>
+                        <tr>
+
+                                <th>Repeat Password</th>
+
+                                <td><input type="text" placeholder="Repeat Password"></td>
+
+
+                        </tr><br>
+                        <tr>
+
+                                <th>DOB</th>
+
+                                <td><input type="date" /></td>
+
+                        </tr><br>
+
+                        <tr>
+
+                                <th>Gender</th>
+
+                                <td>
+
+                                        <input type="radio" name=" gender" value="male">Male<br>
+                                        <input type="radio" name=" gender" value="female">Female<br>
+
+                                        <input type="radio" name="gender" value="other ">other
+
+                                </td>
+
+                        </tr><br>
+                        <tr>
+
+                                <th>languages known</th>
+
+                                <td>
+
+                                        <input type="checkbox" name="English" value="English">English
+                                        <input type="checkbox" name="Hindi" value="Hindi">Hindi
+                                        <input type="checkbox" name="Tamil" value="Tamil">Tamil
+                                        <input type="checkbox" name="Telugu" value="English">Telugu
+
+                                </td>
+
+                        </tr>
+                        <tr>
+
+                                <th>Contact Number</th>
+
+                                <td><input type="text" placeholder="phone number"></td>
+
+                        </tr>
+                        <tr>
+
+                                <th>upload</th>
+
+                                <td><input type="file"></td>
+
+                        </tr>
+                        <tr>
+
+                                <th>Favourite color</th>
+
+                                <td><input type="color"></td>
+
+                        </tr>
+                        <tr>
+
+                                <th>Download File</th>
+
+                                <td><input type="file" placeholder="Download PDF file"></td>
+
+                        </tr>
+                        <tr>
+
+                                <th>Qualification</th>
+                                <td>
+                                        <select>
+                                                <option>mtech</option>
+                                                <option>btech</option>
+                                                <option selected> degree</option>
+                                        </select>
+                                </td>
+
+                        </tr>
+                        <tr>
+                                <td>
+                                        <form action="validation.html"> <input type="submit" value="submit"></form>
+                                </td>
+
+                        </tr>
+
+
+        </center>
+        </table>
+
+</body>
+
+</html>
